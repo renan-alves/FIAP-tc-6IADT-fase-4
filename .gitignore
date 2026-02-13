@@ -1,0 +1,98 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Data directories (large files)
+data/videos/
+data/frames/
+data/audio/
+data/documents/
+data/reports/
+models/yolo_instruments/
+models/pretrained/
+
+# Datasets e treinamento
+dataset/
+Surgical-Instruments-*/
+runs/
+*.pt
+*.zip
+yolov8*.pt
+
+# Temporary files
+.temp/
+tmp/
+*.tmp
+*.temp
+
+# Logs
+logs/
+*.log
+
+# Test coverage
+.coverage
+html_report/
+.pytest_cache/
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+.jupyter
+
+# Unit test / coverage reports
+htmlcov/
+
+# pyenv
+.python-version
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# Mac
+.DS_Store
+
+# Database
+*.db
+*.sqlite3
+*.sqlite
+
+# Generated files
+*.pyc
