@@ -3,15 +3,14 @@ Processamento e análise de vídeos cirúrgicos.
 """
 
 import cv2
-import numpy as np
 from pathlib import Path
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict
 from dataclasses import dataclass
 from datetime import timedelta
 from tqdm import tqdm
 
 from src.detection.yolo_detector import YOLODetector, DetectionResult
-from config.settings import VIDEO_FRAME_RATE, VIDEO_SKIP_FRAMES
+from config.settings import VIDEO_SKIP_FRAMES
 from config.logger import get_logger
 
 logger = get_logger(__name__)

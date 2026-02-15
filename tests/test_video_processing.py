@@ -16,7 +16,7 @@ logger = get_logger(__name__)
 
 class TestVideoMetadata:
     """Testes para VideoMetadata."""
-    
+
     def test_video_metadata_creation(self):
         """Testar criação de VideoMetadata."""
         metadata = VideoMetadata(
@@ -26,14 +26,14 @@ class TestVideoMetadata:
             width=640,
             height=480,
             duration_seconds=10.0,
-            codec="h264"
+            codec="h264",
         )
-        
+
         assert metadata.filename == "test.mp4"
         assert metadata.frame_count == 300
         assert metadata.fps == 30
         assert metadata.duration_seconds == 10.0
-    
+
     def test_video_metadata_to_dict(self):
         """Testar conversão para dicionário."""
         metadata = VideoMetadata(
@@ -43,40 +43,42 @@ class TestVideoMetadata:
             width=640,
             height=480,
             duration_seconds=10.0,
-            codec="h264"
+            codec="h264",
         )
-        
+
         metadata_dict = metadata.to_dict()
-        
+
         assert isinstance(metadata_dict, dict)
-        assert metadata_dict['filename'] == "test.mp4"
-        assert 'duration_formatted' in metadata_dict
+        assert metadata_dict["filename"] == "test.mp4"
+        assert "duration_formatted" in metadata_dict
 
 
 class TestVideoAnalyzer:
     """Testes para VideoAnalyzer."""
-    
+
     @pytest.fixture
     def detector(self):
         """Criar detector mock."""
-        return Mock(spec=YOLODetector)
-    
+        mock_detector = Mock(spec=YOLODetector)
+        mock_detector.detect_batch.return_value = {}
+        return mock_detector
+
     @pytest.fixture
     def analyzer(self, detector):
         """Criar analisador de vídeo."""
         return VideoAnalyzer(detector=detector)
-    
+
     def test_analyzer_initialization(self, analyzer):
         """Testar inicialização do analisador."""
         assert analyzer is not None
         assert analyzer.skip_frames > 0
-    
+
     def test_extract_frames_list(self, analyzer, detector):
         """Testar extração de lista de frames."""
         frames = [np.zeros((480, 640, 3), dtype=np.uint8) for _ in range(10)]
-        
-        result = analyzer.analyzer.detect_batch(frames)
-        
+
+        result = analyzer.detector.detect_batch(frames)
+
         assert isinstance(result, dict)
 
 
