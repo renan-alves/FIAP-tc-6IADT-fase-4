@@ -1,7 +1,12 @@
 """Script de teste para pipeline completo: transcrição + síntese DPP."""
 
 import json
+import sys
 from pathlib import Path
+
+# Add project root to Python path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
 
 from src.audio_processing.whisper_client import transcribe_audio
 from src.text_processing.gpt4_synthesizer import synthesize_dpp_analysis

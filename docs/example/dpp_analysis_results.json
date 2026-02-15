@@ -1,7 +1,9 @@
+
+
 [
   {
     "consultation_id": "teste",
-    "analysis_timestamp": "2026-02-15T03:12:01.913392Z",
+    "analysis_timestamp": "2026-02-15T14:15:50.175443Z",
     "analise_dpp": {
       "probabilidade_percentual": 60,
       "nivel_risco": "Alto",
@@ -10,7 +12,7 @@
         "Desinteresse em atividades antes prazerosas"
       ],
       "sugerir_alerta": false,
-      "justificativa_clinica": "A paciente expressa descontentamento com a maternidade e menciona não gostar da função de ser mãe, o que pode indicar sentimentos de incapacidade materna. Apesar de reconhecer o amor pelas filhas, a insatisfação e o desinteresse em aspectos da maternidade são preocupantes e podem ser indicativos de DPP.",
+      "justificativa_clinica": "A paciente expressa descontentamento com a maternidade e menciona não gostar da função de ser mãe, o que pode indicar sentimentos de incapacidade e desinteresse. Apesar de reconhecer o amor pelas filhas, a ênfase no desagrado sugere um conflito interno que é comum em casos de DPP.",
       "confianca_analise": 0.77,
       "componentes_analise": {
         "componente_textual_peso": 1.0,
@@ -18,14 +20,14 @@
       }
     },
     "metadata": {
-      "transcription_confidence": 0.771,
+      "transcription_confidence": 0.77,
       "acoustic_features_available": true,
-      "analysis_duration_seconds": 4.98
+      "analysis_duration_seconds": 4.16
     }
   },
   {
     "consultation_id": "teste2",
-    "analysis_timestamp": "2026-02-15T03:12:17.462997Z",
+    "analysis_timestamp": "2026-02-15T14:16:05.481776Z",
     "analise_dpp": {
       "probabilidade_percentual": 45,
       "nivel_risco": "Moderado",
@@ -35,7 +37,7 @@
         "Desinteresse em atividades antes prazerosas"
       ],
       "sugerir_alerta": false,
-      "justificativa_clinica": "A paciente expressa sentimentos de culpa por não conseguir estar presente em todos os eventos dos filhos, indicando uma pressão interna e uma sensação de incapacidade materna. Ela menciona estar exausta e reclama de sua situação, o que pode sugerir fadiga emocional. Além disso, a necessidade de validação e a identificação com outras mulheres que também reclamam podem indicar um desinteresse em atividades que antes eram prazerosas, como a interação social.",
+      "justificativa_clinica": "A paciente expressa sentimentos de culpa por não conseguir estar presente em todos os eventos dos filhos, indicando uma pressão interna e um sentimento de incapacidade. Ela menciona estar exausta, o que sugere fadiga extrema. Além disso, a fala sobre não se sentir um 'monstro' e a necessidade de validação indicam um desinteresse em atividades que antes poderiam ser prazerosas, como a interação social. Esses são sinais que podem ser associados à DPP.",
       "confianca_analise": 0.7,
       "componentes_analise": {
         "componente_textual_peso": 0.6,
@@ -45,7 +47,7 @@
     "metadata": {
       "transcription_confidence": 0.686,
       "acoustic_features_available": true,
-      "analysis_duration_seconds": 5.8
+      "analysis_duration_seconds": 5.4
     }
   }
 ]
