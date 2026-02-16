@@ -222,7 +222,6 @@ class ReportGenerator:
         detected_classes = set(analysis.instruments_detected.keys()) if analysis.instruments_detected else set()
         using_default_model = bool(detected_classes & coco_classes)
         
-        # Construir relatório
         lines = [
             "=" * 80,
             ctx['title'],
@@ -230,7 +229,6 @@ class ReportGenerator:
             ""
         ]
         
-        # Adicionar aviso se usando modelo padrão
         if using_default_model:
             lines.extend([
                 "⚠️  AVISO IMPORTANTE - MODELO NÃO TREINADO ⚠️",
@@ -352,7 +350,6 @@ class ReportGenerator:
         output_dir = Path(output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
         
-        # Nome base do arquivo
         base_name = Path(analysis.metadata.filename).stem
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         

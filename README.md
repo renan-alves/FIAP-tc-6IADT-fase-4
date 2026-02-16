@@ -29,10 +29,12 @@ O sistema oferece interfaces CLI e REST API para integração em fluxos de traba
 ## Funcionalidades
 
 - **Análise de Vídeo**: Detecção de instrumentos cirúrgicos baseada em YOLOv8 com análise quadro a quadro
+- **Treinamento YOLOv8**: Notebooks otimizados para Google Colab com datasets públicos combinados
 - **Transcrição de Áudio**: Transcrição em português (pt-BR) via OpenAI Whisper com marcadores de hesitação
 - **Síntese Clínica**: Avaliação de risco DPP via GPT-4 com scores de probabilidade e justificativa clínica
 - **Interfaces Duplas**: CLI para processamento local/batch, REST API para gerenciamento assíncrono de jobs
 - **Saída Estruturada**: Probabilidade de risco (0-100%), nível de risco, indicadores detectados e fundamentação clínica
+- **Código Limpo**: Docstrings completas, sem comentários redundantes, type hints consistentes
 
 ## Primeiros Passos
 
@@ -56,6 +58,9 @@ source venv/bin/activate
 
 pip install -r requirements.txt
 ```
+
+> [!TIP]
+> O `requirements.txt` foi otimizado e contém apenas as dependências essenciais. Bibliotecas não utilizadas (reportlab, nltk, spacy, librosa, SQLAlchemy) foram removidas para instalação mais rápida.
 
 ### Configuração
 
@@ -91,12 +96,17 @@ results = analyzer.analyze_video("video_cirurgia.mp4")
 ### Treinamento do Modelo
 
 ```bash
-# Treinamento local (CPU)
-python train_model.py
+# Google Colab (GPU recomendado - ~2-3 horas)
+# Faça upload de train_colab_combined_fixed.ipynb
+# Selecione runtime T4 GPU
+# Dataset: COVOICE19 (4.6k) + surgical-tools-qygsn (3k) = ~7.6k imagens
+# Resultado: best.pt (~22MB) em runs/detect/train/weights/
 
-# Google Colab (GPU recomendado)
-# Faça upload de train_colab.ipynb e selecione runtime T4
+# Treinamento local (opcional - mais lento em CPU)
+python train_model.py
 ```
+
+**Dataset público:** Roboflow Universe fornece 30+ datasets de instrumentos cirúrgicos para treinamento
 
 ### CLI - Análise de Áudio (Fase 2)
 
@@ -349,7 +359,7 @@ src/
 ├── audio_processing/    # Cliente de transcrição Whisper
 ├── text_processing/     # Síntese clínica GPT-4
 ├── integration/         # Orquestrador, cache de jobs, logs de auditoria
-└── reports/             # Gerador de relatórios
+└── reports/             # Gerador de relatórios (JSON/TXT)
 
 scripts/                 # Scripts de teste do pipeline
 models/                  # Modelos YOLO treinados
@@ -358,6 +368,11 @@ config/                  # Configurações e logging
 tests/                   # Suíte de testes pytest
 specs/                   # Especificações técnicas
 docs/example/            # Arquivos de áudio/vídeo de exemplo
+
+Notebooks de treinamento:
+├── train_colab_combined_fixed.ipynb  # Dataset combinado (7.6k imagens)
+├── train_colab.ipynb                 # Dataset único
+└── test_yolov8.ipynb                 # Testes e validação
 ```
 
 ## Segurança
