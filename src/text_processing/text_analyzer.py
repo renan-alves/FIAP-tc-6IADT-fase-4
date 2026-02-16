@@ -3,7 +3,7 @@ Processamento de texto e documentos (Estrutura pronta para Fase 3).
 """
 
 from pathlib import Path
-from typing import Optional, Dict, List
+from typing import Dict, List
 from dataclasses import dataclass
 from config.logger import get_logger
 

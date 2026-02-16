@@ -21,6 +21,7 @@ ENV/
 .env
 .env.local
 .env.*.local
+.github/
 
 # Data directories (large files)
 data/videos/
