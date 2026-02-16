@@ -3,7 +3,7 @@ Processamento de áudio (Estrutura pronta para Fase 2).
 """
 
 from pathlib import Path
-from typing import Optional, Dict, List
+from typing import List
 from dataclasses import dataclass
 from config.logger import get_logger
 

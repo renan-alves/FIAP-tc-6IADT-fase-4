@@ -5,8 +5,8 @@ Geração de relatórios automáticos especializados em cirurgias ginecológicas
 import json
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
-from dataclasses import dataclass, asdict
+from typing import Dict, List
+from dataclasses import dataclass
 
 from src.video_processing.video_analyzer import VideoAnalysisResult
 from config.logger import get_logger

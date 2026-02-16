@@ -1,0 +1,53 @@
+
+
+[
+  {
+    "consultation_id": "teste",
+    "analysis_timestamp": "2026-02-15T14:15:50.175443Z",
+    "analise_dpp": {
+      "probabilidade_percentual": 60,
+      "nivel_risco": "Alto",
+      "indicadores_detectados": [
+        "Sentimentos de incapacidade materna ou culpa excessiva",
+        "Desinteresse em atividades antes prazerosas"
+      ],
+      "sugerir_alerta": false,
+      "justificativa_clinica": "A paciente expressa descontentamento com a maternidade e menciona não gostar da função de ser mãe, o que pode indicar sentimentos de incapacidade e desinteresse. Apesar de reconhecer o amor pelas filhas, a ênfase no desagrado sugere um conflito interno que é comum em casos de DPP.",
+      "confianca_analise": 0.77,
+      "componentes_analise": {
+        "componente_textual_peso": 1.0,
+        "componente_acustico_peso": 0.0
+      }
+    },
+    "metadata": {
+      "transcription_confidence": 0.77,
+      "acoustic_features_available": true,
+      "analysis_duration_seconds": 4.16
+    }
+  },
+  {
+    "consultation_id": "teste2",
+    "analysis_timestamp": "2026-02-15T14:16:05.481776Z",
+    "analise_dpp": {
+      "probabilidade_percentual": 45,
+      "nivel_risco": "Moderado",
+      "indicadores_detectados": [
+        "Sentimentos de incapacidade materna ou culpa excessiva",
+        "Fadiga extrema além do esperado",
+        "Desinteresse em atividades antes prazerosas"
+      ],
+      "sugerir_alerta": false,
+      "justificativa_clinica": "A paciente expressa sentimentos de culpa por não conseguir estar presente em todos os eventos dos filhos, indicando uma pressão interna e um sentimento de incapacidade. Ela menciona estar exausta, o que sugere fadiga extrema. Além disso, a fala sobre não se sentir um 'monstro' e a necessidade de validação indicam um desinteresse em atividades que antes poderiam ser prazerosas, como a interação social. Esses são sinais que podem ser associados à DPP.",
+      "confianca_analise": 0.7,
+      "componentes_analise": {
+        "componente_textual_peso": 0.6,
+        "componente_acustico_peso": 0.4
+      }
+    },
+    "metadata": {
+      "transcription_confidence": 0.686,
+      "acoustic_features_available": true,
+      "analysis_duration_seconds": 5.4
+    }
+  }
+]
