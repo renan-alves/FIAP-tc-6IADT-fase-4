@@ -138,17 +138,12 @@ class VideoAnalyzer:
         """
         logger.info(f"Iniciando análise de vídeo: {video_path}")
         
-        # Verificar se arquivo existe
         if not Path(video_path).exists():
             raise FileNotFoundError(f"Vídeo não encontrado: {video_path}")
         
-        # Extrair metadados
         metadata = self.extract_metadata(video_path)
-        
-        # Abrir vídeo
         cap = cv2.VideoCapture(video_path)
         
-        # Dicionários para armazenar resultados
         detection_frames: Dict[int, List[DetectionResult]] = {}
         instruments_count: Dict[str, int] = {}
         total_detections = 0
@@ -156,7 +151,6 @@ class VideoAnalyzer:
         frames_analyzed = 0
         
         try:
-            # Calcular número de frames a processar
             frames_to_process = metadata.frame_count // self.skip_frames
             
             pbar = tqdm(total=frames_to_process, 
@@ -169,11 +163,9 @@ class VideoAnalyzer:
                 if not ret:
                     break
                 
-                # Pular frames se configurado
                 if frame_id % self.skip_frames == 0:
                     frames_analyzed += 1
                     
-                    # Detectar instrumentos
                     detections = self.detector.detect_frame(frame, frame_id)
                     
                     if detections:
@@ -181,7 +173,6 @@ class VideoAnalyzer:
                         frames_with_detections += 1
                         total_detections += len(detections)
                         
-                        # Contar instrumentos
                         for det in detections:
                             instruments_count[det.class_name] = \
                                 instruments_count.get(det.class_name, 0) + 1

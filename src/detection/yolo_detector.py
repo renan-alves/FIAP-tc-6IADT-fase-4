@@ -128,6 +128,8 @@ class YOLODetector:
             frames: Lista de frames
             start_frame_id: ID inicial dos frames
 
+        Returns:
+            Dicionário mapeando frame_id para lista de DetectionResult
         """
         batch_results = {}
 
@@ -151,17 +153,14 @@ class YOLODetector:
             x1, y1, x2, y2 = det.bbox
             x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
 
-            # Desenhar retângulo
             cv2.rectangle(annotated_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
-            # Preparar texto
             instrument_pt = MEDICAL_INSTRUMENTS.get(det.class_name, det.class_name)
             if show_confidence:
                 label = f"{instrument_pt} ({det.confidence:.2f})"
             else:
                 label = instrument_pt
 
-            # Desenhar background do texto
             text_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 1)[0]
             cv2.rectangle(
                 annotated_frame,
@@ -171,7 +170,6 @@ class YOLODetector:
                 -1,
             )
 
-            # Desenhar texto
             cv2.putText(
                 annotated_frame,
                 label,
@@ -187,6 +185,9 @@ class YOLODetector:
     def get_model_info(self) -> Dict:
         """
         Retorna informações básicas sobre o modelo YOLO carregado.
+
+        Returns:
+            Dicionário com informações do modelo (class, device, model_path, etc.)
         """
         model = getattr(self, "model", None)
         if model is None:
