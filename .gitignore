@@ -74,8 +74,6 @@ wheels/
 
 # Jupyter Notebook
 .ipynb_checkpoints
-*.ipynb
-.jupyter
 
 # Unit test / coverage reports
 htmlcov/
