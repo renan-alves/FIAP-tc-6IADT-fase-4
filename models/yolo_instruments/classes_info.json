@@ -1,0 +1,25 @@
+{
+  "num_classes": 20,
+  "classes": {
+    "0": "Army_navy",
+    "1": "Bulldog",
+    "2": "Castroviejo",
+    "3": "Clamp",
+    "4": "Forceps",
+    "5": "Frazier",
+    "6": "Hemostat",
+    "7": "Iris",
+    "8": "Mayo_metz",
+    "9": "Needle",
+    "10": "Potts",
+    "11": "Richardson",
+    "12": "Scalpel",
+    "13": "Towel_clip",
+    "14": "Weitlaner",
+    "15": "Yankauer",
+    "16": "0",
+    "17": "1",
+    "18": "2",
+    "19": "3"
+  }
+}
