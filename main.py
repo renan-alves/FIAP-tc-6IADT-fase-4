@@ -18,6 +18,13 @@ def analyze_surgical_video(video_path: str) -> None:
         analyzer = VideoAnalyzer(detector=detector, skip_frames=5)
         analysis_result = analyzer.analyze_video(video_path, show_progress=True)
         
+        # Generate reports
+        report_generator = ReportGenerator()
+        report_paths = report_generator.generate_all_formats(analysis_result)
+        logger.info(f"Relatórios gerados com sucesso!")
+        logger.info(f"  JSON: {report_paths.get('json', 'N/A')}")
+        logger.info(f"  TXT:  {report_paths.get('txt', 'N/A')}")
+        
     except Exception as e:
         logger.error(f"Error: {e}", exc_info=True)
 
@@ -30,12 +37,12 @@ def multimodal_analysis_example(video_path: str,
     logger.info("=" * 80)
     
     try:
-        multi_analyzer = MultiModalAnalyzer(
+        multi_analyzer = MultiModalAnalyzer()
+        result = multi_analyzer.analyze(
             video_path=video_path,
             audio_path=audio_path,
             document_path=document_path
         )
-        result = multi_analyzer.analyze()
         
         logger.info("Gerando relatório abrangente...")
         report_paths = multi_analyzer.generate_comprehensive_report(result)
