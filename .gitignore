@@ -29,14 +29,11 @@ data/frames/
 data/audio/
 data/documents/
 data/reports/
-models/yolo_instruments/
 models/pretrained/
 
 # Datasets e treinamento
 dataset/
-Surgical-Instruments-*/
 runs/
-*.pt
 *.zip
 yolov8*.pt
 
